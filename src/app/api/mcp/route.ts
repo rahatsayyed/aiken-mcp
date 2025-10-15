@@ -14,7 +14,36 @@ const handler = async (req: NextRequest) => {
   // Create the MCP handler
   return createMcpHandler(
     (server) => {
-      // TODO: ADD TOOLS based on authorization
+      server.registerTool(
+        "ping",
+        {
+          title: "Ping",
+          description: "just a ping tool",
+        },
+        async () => {
+          return {
+            content: [{ type: "text", text: "Pong" }],
+          };
+        }
+      );
+
+      const proTool = server.registerTool(
+        "pro-tool",
+        {
+          title: "Pro Tool",
+          description: "just a pro tool",
+        },
+        async () => {
+          return {
+            content: [{ type: "text", text: "Admin Tool Called" }],
+          };
+        }
+      );
+
+      proTool.disable();
+      if (authorization === "Bearer admin") {
+        proTool.enable();
+      }
     },
     {},
     {
