@@ -1,5 +1,5 @@
 import type { Adapter } from "@auth/core/adapters";
-import { createClient, SupabaseClient } from "@supabase/supabase-js";
+import { createClient } from "@supabase/supabase-js";
 
 export function CustomSupabaseAdapter(
   url: string,

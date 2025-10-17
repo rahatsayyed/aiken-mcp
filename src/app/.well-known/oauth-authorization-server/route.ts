@@ -28,6 +28,7 @@ export async function GET(request: NextRequest) {
   return response;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export async function OPTIONS(request: NextRequest) {
   const response = new NextResponse("OK", { status: 200 });
   
