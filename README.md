@@ -1,36 +1,105 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Aiken MCP Server
 
-## Getting Started
+A Model Context Protocol (MCP) server providing tools and documentation for the Aiken programming language. This server enables AI assistants to access Aiken's standard library documentation, language tour, and module implementations.
 
-First, run the development server:
+## Features
+
+- **Language Tour**: Brief metadata about Aiken docs and syntax
+- **Standard Library**: Functions and types for Aiken's standard library
+- **Module Source**: Complete source code implementation for specific Aiken stdlib modules
+
+## Development
+
+### Prerequisites
+
+- Node.js 20 or higher
+- npm, yarn, pnpm, or bun
+
+### Running Locally
+
+1. Clone the repository
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. The server will be available at [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## MCP Server Setup
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This server can be configured as an MCP server in various AI assistants and IDEs. Below are the different methods to connect to this server.
 
-## Learn More
+### Method 1: Remote Server with Direct URL
 
-To learn more about Next.js, take a look at the following resources:
+For remote deployments, configure your MCP client to connect via HTTP/SSE:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```json
+{
+  "mcpServers": {
+    "aiken": {
+      "type": "http",
+      "url": "https://your-deployment-url.com/mcp"
+    }
+  }
+}
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Method 2: Using mcp-remote Package
 
-## Deploy on Vercel
+The [mcp-remote](https://www.npmjs.com/package/mcp-remote) package allows you to connect MCP clients that only support stdio to remote MCP servers over HTTP.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```json
+{
+  "mcpServers": {
+    "aiken": {
+      "command": "npx",
+      "args": ["mcp-remote", "https://your-deployment-url.com/mcp"]
+    }
+  }
+}
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Method 3: Claude Desktop Configuration
+
+Add to your Claude Desktop configuration file (`claude_desktop_config.json`):
+
+**For remote server:**
+
+```json
+{
+  "mcpServers": {
+    "aiken": {
+      "url": "https://your-deployment-url.com/mcp"
+    }
+  }
+}
+```
+
+## Configuration Options
+
+### Environment Variables
+
+Create a `.env.local` file for local development:
+
+```env
+# Add any required environment variables here
+```
+
+## Available Tools
+
+Once configured, the following tools will be available to your AI assistant:
+
+- `languageTour`: Get brief metadata about Aiken docs and syntax
+- `stdlib`: Access functions and types for Aiken's standard library
+- `stdlib-module`: Fetch complete source code for specific Aiken stdlib modules
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
