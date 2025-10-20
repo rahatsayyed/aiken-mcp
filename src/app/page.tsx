@@ -1,14 +1,15 @@
-import { HeroSection } from "@/components/heroSection"
-import { DashboardPreview } from "@/components/dashboardPreview"
-import { SocialProof } from "@/components/socialProof"
-import { BentoSection } from "@/components/bentoSection"
-import { LargeTestimonial } from "@/components/largeTestimonial"
+import { HeroSection } from "@/components/heroSection";
+import { DashboardPreview } from "@/components/dashboardPreview";
+import { SocialProof } from "@/components/socialProof";
+import { BentoSection } from "@/components/bentoSection";
+import { LargeTestimonial } from "@/components/largeTestimonial";
 // import { PricingSection } from "@/components/pricingSection"
-import { TestimonialGridSection } from "@/components/testimonialGridSection"
-import { FAQSection } from "@/components/faqSection"
-import { CTASection } from "@/components/ctaSection"
-import { FooterSection } from "@/components/footerSection"
-import { AnimatedSection } from "@/components/animatedSection"
+import { TestimonialGridSection } from "@/components/testimonialGridSection";
+import { FAQSection } from "@/components/faqSection";
+import { CTASection } from "@/components/ctaSection";
+import { FooterSection } from "@/components/footerSection";
+import { AnimatedSection } from "@/components/animatedSection";
+import ConfigurationSection from "@/components/configurationSection";
 
 export default function Home() {
   return (
@@ -23,14 +24,24 @@ export default function Home() {
             </AnimatedSection>
           </div>
         </main>
-        <div className="mt-[411px] md:mt-[400px]"/>
-        <AnimatedSection className="relative z-10 max-w-[1320px] mx-auto px-6" delay={0.1}>
+        <div className="mt-[411px] md:mt-[400px]" />
+        <AnimatedSection
+          className="relative z-10 max-w-[1320px] mx-auto px-6"
+          delay={0.1}
+        >
           <SocialProof />
         </AnimatedSection>
-        <AnimatedSection id="features" className="relative z-10 max-w-[1320px] mx-auto mt-16" delay={0.2}>
+        <AnimatedSection
+          id="features"
+          className="relative z-10 max-w-[1320px] mx-auto mt-16"
+          delay={0.2}
+        >
           <BentoSection />
         </AnimatedSection>
-        <AnimatedSection className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16" delay={0.2}>
+        <AnimatedSection
+          className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16"
+          delay={0.2}
+        >
           <LargeTestimonial />
         </AnimatedSection>
         <AnimatedSection
@@ -38,8 +49,7 @@ export default function Home() {
           className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16"
           delay={0.2}
         >
-          &quot;CONFIGURATION&quot;
-          {/* <PricingSection /> */}
+          <ConfigurationSection />
         </AnimatedSection>
         <AnimatedSection
           id="testimonials-section"
@@ -48,16 +58,26 @@ export default function Home() {
         >
           <TestimonialGridSection />
         </AnimatedSection>
-        <AnimatedSection id="faq-section" className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16" delay={0.2}>
+        <AnimatedSection
+          id="faq-section"
+          className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16"
+          delay={0.2}
+        >
           <FAQSection />
         </AnimatedSection>
-        <AnimatedSection className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16" delay={0.2}>
+        <AnimatedSection
+          className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16"
+          delay={0.2}
+        >
           <CTASection />
         </AnimatedSection>
-        <AnimatedSection className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16" delay={0.2}>
+        <AnimatedSection
+          className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16"
+          delay={0.2}
+        >
           <FooterSection />
         </AnimatedSection>
       </div>
     </div>
-  )
+  );
 }
