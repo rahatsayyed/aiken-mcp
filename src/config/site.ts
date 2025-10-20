@@ -32,7 +32,7 @@ export const siteConfig = {
     //   href: "#pricing",
     // },
     {
-      label: "Docs",
+      label: "Config",
       href: "#configuration",
     },
   ],
